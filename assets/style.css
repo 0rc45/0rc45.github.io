@@ -1,0 +1,158 @@
+/* sonarrow_osint — feuille de style unique, aucune ressource externe */
+
+@font-face { font-family: "Noto Serif"; src: url("fonts/noto-serif-regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Noto Serif"; src: url("fonts/noto-serif-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Noto Serif"; src: url("fonts/noto-serif-bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Noto Serif"; src: url("fonts/noto-serif-bolditalic.woff2") format("woff2"); font-weight: 700; font-style: italic; font-display: swap; }
+
+:root {
+  --bg: #ffffff;
+  --surface: #f4f4f2;
+  --ink: #1e2228;
+  --muted: #5f646c;
+  --rule: #d9d9d6;
+  --accent: #b3261e;      /* rouge des surtitres, comme dans le PDF */
+  --link: #2454a0;        /* bleu des liens et du filet de titre */
+  --figure-bg: #ffffff;
+  --measure: 42rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15171a;
+    --surface: #1f2226;
+    --ink: #e6e4df;
+    --muted: #a3a7ad;
+    --rule: #34383e;
+    --accent: #ef6b5f;
+    --link: #8cb4f2;
+    --figure-bg: #ffffff;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15171a; --surface: #1f2226; --ink: #e6e4df; --muted: #a3a7ad;
+  --rule: #34383e; --accent: #ef6b5f; --link: #8cb4f2; --figure-bg: #ffffff;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Noto Serif", Georgia, "Times New Roman", serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  font-variant-numeric: lnum;
+}
+a { color: var(--link); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+img { max-width: 100%; height: auto; display: block; }
+
+.wrap { max-width: var(--measure); margin: 0 auto; padding: 0 16px; }
+.wrap-wide { max-width: 64rem; margin: 0 auto; padding: 0 16px; }
+
+/* en-tête du site */
+.site-header { border-bottom: 1px solid var(--rule); }
+.site-header .wrap-wide { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 0.9rem; padding-bottom: 0.9rem; }
+.brand { font-weight: 700; font-size: 1.05rem; color: var(--ink); text-decoration: none; letter-spacing: 0.01em; }
+.site-nav { display: flex; gap: 1.1rem; font-size: 0.92rem; }
+.site-nav a { color: var(--muted); text-decoration: none; }
+.site-nav a:hover { color: var(--ink); text-decoration: underline; }
+.site-nav .lang { color: var(--ink); font-weight: 700; }
+
+/* article */
+.article-head { padding-top: 2.6rem; }
+.kicker { color: var(--accent); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin: 0 0 0.6rem; }
+h1 { font-size: clamp(1.75rem, 1.2rem + 2.6vw, 2.6rem); line-height: 1.18; margin: 0 0 0.9rem; padding-bottom: 0.9rem; border-bottom: 2px solid var(--link); text-wrap: balance; }
+.byline { color: var(--muted); font-size: 0.9rem; margin: 0 0 1.6rem; display: flex; flex-wrap: wrap; gap: 0.3rem 1.2rem; }
+.byline a { color: var(--muted); }
+.chapo { font-weight: 700; font-size: 1.08rem; line-height: 1.6; margin: 0 0 1.8rem; }
+
+.article-body p { margin: 0 0 1.15rem; hyphens: auto; }
+.article-body h2 { color: var(--accent); font-size: 1.3rem; letter-spacing: 0.02em; text-transform: uppercase; margin: 2.8rem 0 1rem; }
+.article-body h3 { font-size: 1.18rem; line-height: 1.35; margin: 2.2rem 0 0.7rem; }
+
+figure { margin: 2rem 0; }
+figure .frame { display: block; background: var(--figure-bg); border-radius: 4px; }
+figure.dark-shot .frame { background: transparent; }
+figure img { margin: 0 auto; border-radius: 4px; }
+figcaption { color: var(--muted); font-size: 0.85rem; line-height: 1.5; margin-top: 0.6rem; text-align: center; }
+figcaption a { color: var(--muted); }
+figure.small img { max-width: 26rem; width: 100%; }
+figure.wide { margin-left: calc(50% - min(50vw, 32rem) + 16px); margin-right: calc(50% - min(50vw, 32rem) + 16px); }
+
+/* tableaux */
+.table-block { margin: 2rem 0; }
+.table-title { font-weight: 700; font-size: 0.95rem; margin: 0 0 0.6rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.86rem; line-height: 1.45; font-variant-numeric: tnum lnum; }
+th, td { text-align: left; vertical-align: top; padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--rule); }
+thead th { background: var(--surface); border-bottom: 2px solid var(--ink); font-weight: 700; }
+.table-notes { color: var(--muted); font-size: 0.8rem; font-style: italic; margin: 0.6rem 0 0; }
+@media (max-width: 640px) {
+  table, thead, tbody, tr, th, td { display: block; }
+  thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  tr { border-top: 2px solid var(--ink); padding: 0.35rem 0; }
+  td { border: 0; padding: 0.2rem 0; display: grid; grid-template-columns: 7.5rem 1fr; gap: 0.6rem; }
+  td::before { content: attr(data-label); color: var(--muted); font-weight: 700; font-size: 0.78rem; }
+  td:first-child { font-weight: 700; }
+}
+
+/* encadré méthodologie */
+.methodo { background: var(--surface); border-top: 1px solid var(--rule); padding: 1.3rem 1.2rem 0.4rem; margin: 3rem 0 2rem; font-size: 0.9rem; line-height: 1.6; }
+.methodo h2 { color: var(--ink); text-transform: none; letter-spacing: 0; font-size: 1.05rem; margin: 0 0 0.8rem; }
+.methodo p { margin: 0 0 0.8rem; }
+
+/* téléchargement du PDF */
+.pdf-link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 700; border: 1px solid var(--rule); border-radius: 4px; padding: 0.45rem 0.8rem; text-decoration: none; color: var(--ink); }
+.pdf-link:hover { border-color: var(--link); color: var(--link); }
+.pdf-link .pdf-size { font-weight: 400; color: var(--muted); }
+.pdf-link svg { width: 1rem; height: 1rem; flex: none; }
+.article-end { border-top: 1px solid var(--rule); padding-top: 1.4rem; margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: 0.8rem 1.4rem; align-items: center; font-size: 0.9rem; }
+
+/* pages de liste */
+.list-head { padding-top: 2.6rem; }
+.list-head h1 { border-bottom: 0; padding-bottom: 0; }
+.list-head p { color: var(--muted); margin-top: 0; }
+.card { display: block; border-top: 1px solid var(--rule); padding: 1.6rem 0; text-decoration: none; color: inherit; }
+.card:hover .card-title { color: var(--link); }
+.card-title { font-size: 1.45rem; line-height: 1.25; font-weight: 700; margin: 0 0 0.6rem; }
+.card-text { margin: 0; color: var(--muted); font-size: 0.98rem; }
+.home-langs { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 0 2.5rem; }
+
+.site-footer { border-top: 1px solid var(--rule); margin-top: 4rem; padding: 1.4rem 0 2.5rem; color: var(--muted); font-size: 0.82rem; }
+.site-footer .wrap-wide { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.6rem; }
+.site-footer a { color: var(--muted); }
+
+@media print {
+  .site-header, .site-footer, .article-end, .byline .pdf-link { display: none; }
+  body { font-size: 11pt; }
+  a { color: inherit; }
+}
+
+/* identité : logo et bannière de l'équipe */
+.brand { display: inline-flex; align-items: center; gap: 0.6rem; }
+.brand img { width: 40px; height: 40px; border-radius: 8px; }
+.team { margin: 1.6rem 0 0; }
+.team-banner { position: relative; border-radius: 6px; overflow: hidden; }
+.team-banner img { width: 100%; }
+.team-names { position: relative; height: 2.2em; font-size: clamp(0.72rem, 0.4rem + 1.4vw, 1.25rem); }
+.team-name {
+  position: absolute; bottom: 0.35em; transform: translateX(-50%);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-weight: 800;
+  letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; color: var(--ink);
+}
+.team-name::after { content: ""; position: absolute; left: 50%; bottom: -0.35em; width: 1px; height: 0.3em; background: var(--muted); }
+.team-name-0 { left: 29%; }
+.team-name-1 { left: 50%; }
+.team-name-2 { left: 74%; }
+.about h2 { color: var(--ink); text-transform: none; letter-spacing: 0; font-size: 1.15rem; margin: 2rem 0 0.6rem; }
+.home-head { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.6rem; }
+.home-head h1 { margin: 0; }
+.home-head p { margin: 0.2rem 0 0; }
+.home-logo { width: 88px; height: 88px; border-radius: 14px; flex: none; }
+.site-nav a { white-space: nowrap; }
+@media (max-width: 460px) {
+  .brand-name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .site-nav { gap: 0.9rem; }
+}
