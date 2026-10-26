@@ -156,3 +156,4 @@ thead th { background: var(--surface); border-bottom: 2px solid var(--ink); font
   .brand-name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
   .site-nav { gap: 0.9rem; }
 }
+.compteur { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
