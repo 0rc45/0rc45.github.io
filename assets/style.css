@@ -157,3 +157,18 @@ thead th { background: var(--surface); border-bottom: 2px solid var(--ink); font
   .site-nav { gap: 0.9rem; }
 }
 .compteur { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+
+/* page Musique : vignette YouTube cliquable */
+.video { margin: 0 0 2.4rem; }
+.video-thumb { position: relative; display: block; border-radius: 4px; overflow: hidden; }
+.video-thumb img { width: 100%; border-radius: 0; }
+.video-thumb .play { position: absolute; left: 50%; top: 50%; width: 68px; height: 48px; transform: translate(-50%, -50%); }
+.video-thumb .play rect { fill: #212121; opacity: 0.85; }
+.video-thumb .play path { fill: #ffffff; }
+.video-thumb:hover .play rect, .video-thumb:focus-visible .play rect { fill: #cc0000; opacity: 1; }
+.video figcaption { font-size: 0.95rem; }
+.video figcaption a { white-space: nowrap; }
+.video figcaption strong { color: var(--ink); }
+@media (max-width: 400px) {
+  .site-nav { gap: 0.7rem; font-size: 0.86rem; }
+}
