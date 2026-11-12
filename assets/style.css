@@ -177,6 +177,18 @@ tbody tr:hover { background: rgba(176, 124, 255, 0.07); }
 .video figcaption a { white-space: nowrap; }
 .video figcaption strong { color: var(--ink); }
 
+/* page À propos : articles de presse, un bloc par journal avec son logo */
+.presse { display: grid; gap: 1.6rem; margin: 1rem 0 0; }
+.presse-media { display: flex; align-items: flex-start; gap: 1.2rem; }
+.presse-logo { flex: none; width: 160px; height: 60px; border-radius: 6px; box-shadow: 0 0 0 1px var(--rule), 0 0 34px -14px rgba(176, 124, 255, 0.6); }
+.about .presse-liens { list-style: none; margin: 0; padding: 0; min-width: 0; }
+.about .presse-liens li { margin: 0 0 0.7rem; line-height: 1.45; overflow-wrap: anywhere; }
+.presse-liens time { display: block; color: var(--muted); font-size: 0.85rem; }
+@media (max-width: 560px) {
+  .presse-media { flex-direction: column; gap: 0.7rem; }
+  .presse-logo { width: 128px; height: 48px; }
+}
+
 /* impression : on revient à l'encre noire sur papier blanc */
 @media print {
   :root { --bg: #ffffff; --surface: #f4f4f2; --ink: #1e2228; --muted: #5f646c; --rule: #d9d9d6; --orange: #b3261e; --rose: #b3261e; --violet: #1e2228; --cyan: #1e2228; color-scheme: light; }
