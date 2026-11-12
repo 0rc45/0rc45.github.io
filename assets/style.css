@@ -176,6 +176,7 @@ tbody tr:hover { background: rgba(176, 124, 255, 0.07); }
 .video figcaption { font-size: 0.95rem; }
 .video figcaption a { white-space: nowrap; }
 .video figcaption strong { color: var(--ink); }
+.video-note { display: block; margin-top: 0.3rem; font-style: italic; }
 
 /* page À propos : articles de presse, un bloc par journal avec son logo */
 .presse { display: grid; gap: 1.6rem; margin: 1rem 0 0; }
